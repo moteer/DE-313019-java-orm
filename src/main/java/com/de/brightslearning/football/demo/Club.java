@@ -1,9 +1,8 @@
 package com.de.brightslearning.football.demo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Club {
@@ -13,6 +12,17 @@ public class Club {
 
     private String name;
     private String stadiumName;
+
+    @OneToMany
+    private List<Player> players;
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
 
     public String getName() {
         return name;
